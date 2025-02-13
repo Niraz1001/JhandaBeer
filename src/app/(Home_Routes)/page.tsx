@@ -10,7 +10,7 @@ const Home = () => {
 
       {/* Hero section */}
       <div className='relative w-screen h-[150px] md:h-[335px] lg:h-[535px]'>
-        <Image src={"/img/hero.jfif"} alt='HeroImg' fill className='object-cover w-auto h-auto object-top' />
+        <Image src={"/img/hero.png"} alt='HeroImg' fill className='object-cover w-auto h-auto object-top' />
       </div>
 
 
