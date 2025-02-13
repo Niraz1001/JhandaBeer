@@ -19,19 +19,41 @@ const Home = () => {
       <div className='globalContainer my-10 md:my-16'>
 
         <div className='flex items-center py-5 gap-4'>
-          <div className='basis-[60%]'>
-            <p className='text-sm md:text-lg text-[#2E358C] font-medium'> राम्रो चीजको मूल्य बुझ्नेहरूका लागि तयार गरिएको</p>
-            <h4 className='text-2xl md:text-[55px] mt-4 md:mt-8 font-semibold'> प्रिमियम क्राफ्ट बियर</h4>
-            <p className='text-sm md:text-lg mt-2 md:mt-10 font-medium'>परम्परा र नवीनताको उत्तम सन्तुलन प्रत्येक बोटलमा अनुभव गर्नुहोस्।</p>
+          <div className='basis-[60%] lg:basis-[50%]'>
+            <p className='text-sm md:text-base lg:text-lg text-[#2E358C] font-medium'> राम्रो चीजको मूल्य बुझ्नेहरूका लागि तयार गरिएको</p>
+            <h4 className='text-2xl md:text-[40px] lg:text-[55px] mt-4 md:mt-8 font-semibold leading-[60px]'> प्रिमियम क्राफ्ट बियर</h4>
+            <p className='text-sm md:text-base lg:text-lg mt-2 md:mt-10 font-medium'>परम्परा र नवीनताको उत्तम सन्तुलन प्रत्येक बोटलमा अनुभव गर्नुहोस्।</p>
             <button className='bg-[#2E358C] py-1 px-5 md:py-3 md:px-12 text-white rounded-3xl mt-4 md:mt-8'>अझै जान्नुहोस्</button>
           </div>
 
-          <div className='basis-[40%] md:basis-[25%]'>
+          <div className='basis-[40%] md:basis-[20%]'>
             <Image src={"/img/beer.png"} alt='BeerImg' width={250} height={200} />
           </div>
 
-          <div className='hidden sm:block basis-[15%]'>
+          <div className='hidden  custom-lg:block basis-[20%] relative'>
+            <div className='absolute flex left-[-40px] top-[-200px] items-center'>
+              <div className='h-[14px] w-[14px] bg-[#2E358C] rounded-full'></div>
+              <div className='h-[2px] w-[156px] bg-[#2E358C]'></div>
+              <p className='text-[#2E358C]'>विशेषता १</p>
+            </div>
 
+            <div className='absolute flex left-[-30px] top-[-50px] items-center'>
+              <div className='h-[14px] w-[14px] bg-[#2E358C] rounded-full'></div>
+              <div className='h-[2px] w-[136px] bg-[#2E358C]'></div>
+              <p className='text-[#2E358C]'>विशेषता १</p>
+            </div>
+
+            <div className='absolute flex left-[-30px] top-[50px] items-center'>
+              <div className='h-[14px] w-[14px] bg-[#2E358C] rounded-full'></div>
+              <div className='h-[2px] w-[156px] bg-[#2E358C]'></div>
+              <p className='text-[#2E358C]'>विशेषता १</p>
+            </div>
+
+            <div className='absolute flex left-[-30px] top-[150px] items-center'>
+              <div className='h-[14px] w-[14px] bg-[#2E358C] rounded-full'></div>
+              <div className='h-[2px] w-[156px] bg-[#2E358C]'></div>
+              <p className='text-[#2E358C]'>विशेषता १</p>
+            </div>
           </div>
         </div>
 

@@ -61,7 +61,7 @@ const Navbar = () => {
             {
             NavItemData.map((item, idx) => (
               <div key={idx} className={`mb-5 ${Pathname === item.href && "text-[#EC2028]"}`}>
-                <Link href={item.href}>{item.name}</Link>
+                <Link href={item.href} onClick={()=>(setIsOpen(!IsOpen))}>{item.name}</Link>
               </div>
             ))
           }
