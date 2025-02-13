@@ -9,8 +9,8 @@ const Home = () => {
     <div>
 
       {/* Hero section */}
-      <div className='relative w-screen h-[150px] md:h-[335px] lg:h-[535px]'>
-        <Image src={"/img/hero.png"} alt='HeroImg' fill className='object-cover w-auto h-auto object-top' />
+      <div className='relative w-screen h-[150px] md:h-[335px] lg:h-screen'>
+        <Image src={"/img/hero.png"} alt='HeroImg' fill className='object-cover lg:object-contain w-auto h-full object-top' />
       </div>
 
 
