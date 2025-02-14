@@ -1,12 +1,20 @@
+'use client'
 import Card from '@/src/components/Card'
 import Image from 'next/image'
 import React from 'react'
 import { CardData } from '../constant'
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa'
 
+
+
 const Home = () => {
+
+ 
+
   return (
     <div>
+
+      
 
       {/* Hero section */}
       <div className='relative w-screen h-[150px] md:h-[335px] lg:h-screen'>
@@ -14,6 +22,7 @@ const Home = () => {
       </div>
 
 
+     
 
       {/* Section 1 */}
       <div className='globalContainer my-10 md:my-16'>

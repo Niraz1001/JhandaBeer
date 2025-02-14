@@ -1,9 +1,15 @@
+'use client'
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 
-const Products = () => {
+const Product = () => {
+  const { t } = useTranslation();
+
   return (
-    <div>Products</div>
-  )
+    <div>
+      <div>{t("welcome") || "Welcome"}</div>
+    </div>
+  );
 }
 
-export default Products
+export default Product;
