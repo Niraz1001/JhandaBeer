@@ -1,3 +1,44 @@
 {
-    "welcome": "Hello JhandaBeer Welcome in nepali"
-}
+    "section1": {
+      "tagline": "Crafted for those who appreciate the finer things",
+      "title": "Premium Craft Beer",
+      "description": "Experience the perfect balance of tradition and innovation in every bottle.",
+      "button": "Learn More"
+    },
+    "section2": {
+      "title": "Crafted to Perfection"
+    },
+    "section3": {
+      "title": "Jhanda Beer",
+      "subtitle": "Aromatic Japanese Flavor",
+      "rating": "(4.5/5 - 2,389 Reviews)",
+      "description": "Experience the perfect blend of tradition and innovation with Flag Beer. Made using premium ingredients and respected Japanese brewing techniques, each can delivers a fresh, crisp taste that is unparalleled in quality."
+    },
+    "Section4":{
+      "title": "Our gallery"
+    },
+
+    "cards": [
+      {
+        "img": "/img/5.png",
+        "name": "Premium Ingredients",
+        "des": "Handcrafted premium malt and carefully selected hops for an exceptional taste experience."
+      },
+      {
+        "img": "/img/6.png",
+        "name": "Perfectly Brewed",
+        "des": "Each batch is brewed to perfection, allowing flavors to develop fully."
+      },
+      {
+        "img": "/img/7.png",
+        "name": "Crystal Clear",
+        "des": "Advanced filtration ensures exceptional clarity and purity in every bottle."
+      },
+      {
+        "img": "/img/8.png",
+        "name": "Crafted with Expertise",
+        "des": "Each batch is carefully brewed to achieve the perfect balance of rich malt flavors."
+      }
+    ]
+  }
+  

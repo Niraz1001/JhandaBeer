@@ -2,117 +2,111 @@
 import Card from '@/src/components/Card'
 import Image from 'next/image'
 import React from 'react'
-import { CardData } from '../constant'
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa'
-
+import { useTranslation } from 'react-i18next';
+import { CardIn } from '@/src/types'
+import Gallery from '@/src/components/gallery'
+import { GalleryData } from '../constant'
 
 
 const Home = () => {
 
- 
+  const { t } = useTranslation();
+  const cards = t('cards', { returnObjects: true }); // Fetch cards data from translations
+  const cardsArray = Array.isArray(cards) ? cards : Object.values(cards);
 
   return (
-    <div>
-
-      
-
+    <div className='mt-20'>
       {/* Hero section */}
-      <div className='relative w-screen h-[150px] md:h-[335px] lg:h-screen'>
-        <Image src={"/img/hero.png"} alt='HeroImg' fill className='object-cover lg:object-contain w-auto h-full object-top' />
+      <div className='relative w-full overflow-hidden h-[200px] md:h-[335px] lg:h-[700px]'>
+        <Image src={"/img/hero1.png"} alt='HeroImg' fill className='object-cover w-auto h-full object-center ' />
       </div>
-
-
-     
 
       {/* Section 1 */}
-      <div className='globalContainer my-10 md:my-16'>
+      <div className='bg-[url(/img/background1.png)] overflow-hidden pt-12 pb-12 md:pt-44 md:pb-36 bg-cover bg-no-repeat bg-center'>
 
-        <div className='flex items-center py-5 gap-4'>
-          <div className='basis-[60%] lg:basis-[50%]'>
-            <p className='text-sm md:text-base lg:text-lg text-[#2E358C] font-medium'> राम्रो चीजको मूल्य बुझ्नेहरूका लागि तयार गरिएको</p>
-            <h4 className='text-2xl md:text-[40px] lg:text-[55px] mt-4 md:mt-8 font-semibold leading-[60px]'> प्रिमियम क्राफ्ट बियर</h4>
-            <p className='text-sm md:text-base lg:text-lg mt-2 md:mt-10 font-medium'>परम्परा र नवीनताको उत्तम सन्तुलन प्रत्येक बोटलमा अनुभव गर्नुहोस्।</p>
-            <button className='bg-[#2E358C] py-1 px-5 md:py-3 md:px-12 text-white rounded-3xl mt-4 md:mt-8'>अझै जान्नुहोस्</button>
+        <div className='globalContainer  mx-0 md:mx-40 '>
+
+          <div className='w-[220px] md:w-[320px]'>
+            <p className='text-sm md:text-base lg:text-lg  text-white font-medium pr-10 md:pr-20'>
+              {t('section1.tagline')}
+            </p>
+            <h4 className='text-2xl md:text-[40px] lg:text-[55px] text-white mt-0 md:mt-8 font-semibold leading-[60px]'>
+              {t('section1.title')}
+            </h4>
+            <p className='text-sm md:text-base lg:text-lg text-white mt-0 md:mt-10 font-medium pr-10 md:pr-0'>
+              {t('section1.description')}
+            </p>
+            <button className='bg-[#2E358C] py-1 px-5 md:py-3 md:px-12 text-white rounded-3xl mt-4 md:mt-8 '>
+              {t('section1.button')}
+            </button>
           </div>
 
-          <div className='basis-[40%] md:basis-[20%]'>
-            <Image src={"/img/beer.png"} alt='BeerImg' width={250} height={200} />
-          </div>
-
-          <div className='hidden  custom-lg:block basis-[20%] relative'>
-            <div className='absolute flex left-[-40px] top-[-200px] items-center'>
-              <div className='h-[14px] w-[14px] bg-[#2E358C] rounded-full'></div>
-              <div className='h-[2px] w-[156px] bg-[#2E358C]'></div>
-              <p className='text-[#2E358C]'>विशेषता १</p>
-            </div>
-
-            <div className='absolute flex left-[-30px] top-[-50px] items-center'>
-              <div className='h-[14px] w-[14px] bg-[#2E358C] rounded-full'></div>
-              <div className='h-[2px] w-[136px] bg-[#2E358C]'></div>
-              <p className='text-[#2E358C]'>विशेषता १</p>
-            </div>
-
-            <div className='absolute flex left-[-30px] top-[50px] items-center'>
-              <div className='h-[14px] w-[14px] bg-[#2E358C] rounded-full'></div>
-              <div className='h-[2px] w-[156px] bg-[#2E358C]'></div>
-              <p className='text-[#2E358C]'>विशेषता १</p>
-            </div>
-
-            <div className='absolute flex left-[-30px] top-[150px] items-center'>
-              <div className='h-[14px] w-[14px] bg-[#2E358C] rounded-full'></div>
-              <div className='h-[2px] w-[156px] bg-[#2E358C]'></div>
-              <p className='text-[#2E358C]'>विशेषता १</p>
-            </div>
-          </div>
         </div>
-
       </div>
 
 
       {/* Section 2 */}
-      <div className='border-[#CED4DA] border-t-2 bg-gradient-to-r from-[#2E358C] to-[#DC1E25] py-10 md:pt-16 md:pb-[96px]'>
-        <div className='globalContainer '>
-          <h4 className='text-[40px] md:text-[48px] mt-5 font-semibold text-center text-white'>पूर्णतासँग सिर्जना गरिएको</h4>
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-12 mt-[30px] md:mt-[75px]'>
-            {
-              CardData.map((item, idx) => (
-                <div key={idx}>
-                  <Card item={item} />
-                </div>
-              ))
-            }
+      <div className='py-10 md:pt-16 md:pb-[96px]'>
+        <div>
+          <h4 className='text-[40px] md:text-[48px] mt-5 font-semibold text-center text-white'>
+            {t('section2.title')}
+          </h4>
+          <div className='mt-[30px] md:mt-[75px]'>
+            {cardsArray.map((item: CardIn, idx) => (
+              <Card key={idx} item={item} idx={idx} />
+            ))}
           </div>
         </div>
       </div>
 
 
 
-      {/* Section 2 */}
-      <div className='border-[#CED4DA] border-t-[3px]  bg-gradient-to-t from-[#F3F4F6] to-[#F9FAFB]'>
-        <div className='globalContainer py-20 grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-20'>
 
-          <div className='relative  bg-[#CBF3FF] bg-opacity-20 rounded-full w-[300px] h-[300px] md:h-[400px] lg:h-[600px] md:w-[400px] lg:w-[600px] flex items-center justify-center mx-auto'>
-            <Image src={"/img/beer.png"} alt='BeerImg' width={120} height={70} className='md:h-[240px] md:w-[150px] lg:h-[420px] lg:w-[250px]' />
-            <button className='absolute right-[-10px] top-5 md:top-3 lg:top-7 bg-[#EF4444] py-3 px-4 md:py-3 md:px-5 lg:py-5 lg:px-8 text-xs md:text-base text-white rounded-full mt-8'>Special Offer</button>
+      {/* Section 3 */}
+      <div className='relative bg-[url(/img/background2.png)] bg-cover bg-no-repeat bg-center overflow-hidden'>
+        <div className='absolute w-full h-full bg-black opacity-75 inset-0'></div>
+        <div className=' py-32 flex  gap-0 md:gap-20'>
+
+          <div className='absolute w-full h-auto top-[-300px] left-[-150px] rotate-[8deg]'>
+            <Image src={"/img/beer2.png"} alt='BeerImg' width={1031} height={1289} />
           </div>
 
-          <div className='mt-5 md:mt-10 lg:mt-32 text-center md:text-left'>
-            <h4 className='text-[40px] md:text-[50px] lg:text-[60px] font-bold'>झण्डा बियर</h4>
-            <p className='text-xs mt-3 '>रामाणिक जापानी स्वाद</p>
+          <div className='basis-[45%]'> {/* Empty div */} </div>
+
+          <div className='relative mt-5 md:mt-10 lg:mt-32 text-center md:text-left text-white pr-36 basis-[55%]'>
+            <h4 className='text-[40px] md:text-[50px] lg:text-[60px] font-bold'>{t('section3.title')}</h4>
+            <p className='text-xs mt-3 '>{t('section3.subtitle')}</p>
             <hr className='my-3 md:my-5 lg:my-8' />
             {/* Rating */}
             <div className=' flex items-center gap-3 mb-5 lg:mb-12 justify-around md:justify-start'>
               <div className='flex gap-1 text-[#FACC15] text-base'><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalfAlt /></div>
-              <p>(४.५/५ - २,३८९ समीक्षाहरूबाट)</p>
+              <p>({t('section3.rating')})</p>
             </div>
 
-            <p className='text-[14px] md:text-[16px]'>झण्डा बियरसँग परम्परा र नवीनताको उत्कृष्ट संयोजनको अनुभव लिनुहोस्। उत्कृष्ट सामग्रीहरू र सम्मानित जापानी बियर उत्पादन प्रविधिहरूको प्रयोग गरेर बनाइएको, प्रत्येक क्यानले ताजा, शीतल स्वाद दिन्छ, जुन गुणस्तरमा अद्वितीय छ।</p>
+            <p className='text-[14px] md:text-[16px]'>{t('section3.description')}</p>
 
           </div>
 
         </div>
       </div>
 
+      {/* Gallery Section */}
+
+      <div className='globalContainer py-20'>
+        <h4 className='text-[40px] md:text-[48px] mb-5 font-semibold text-center text-white'>
+          {t('Section4.title')}
+        </h4>
+        <div className=' grid grid-cols-3 gap-4 p-4'>
+          {
+            GalleryData.map((item, idx) => (
+              <div key={idx} className={`${idx === 0 && "row-span-2"}`}>
+                <Gallery item={item} idx={idx} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
 
     </div >
   )

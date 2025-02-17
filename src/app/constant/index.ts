@@ -1,4 +1,5 @@
-import { CardIn, Contact, NavItem } from "@/src/types"
+import { Contact, GalleryIn, NavItem } from "@/src/types"
+
 
  export const NavItemData: NavItem[]= [
     {
@@ -16,29 +17,6 @@ import { CardIn, Contact, NavItem } from "@/src/types"
     {
         name: "Contact",
         href: "/contact"
-    },
- ]
-
- export const CardData: CardIn[] = [
-    {
-        img: "/img/1.png",
-        name: "उत्तम सामग्रीहरू",
-        des : "हातैले निर्मित प्रिमियम माल्ट र सावधानीपूर्वक चयन गरिएका हप्सहरू असाधारण  स्वाद अनुभवका लागि |",
-    },
-    {
-        img: "/img/2.png",
-        name: "संपूर्ण रूपमा उमालेको",
-        des : "प्रत्येक ब्याचलाई पूर्णतासँग उमालिन्छ, जसले स्वादलाई पूर्ण रूपमा  विकसित गर्न मद्दत गर्छ |",
-    },
-    {
-        img: "/img/3.png",
-        name: "स्फटिक जस्तै सफा",
-        des : "उन्नत फिल्टरेशन प्रक्रियाले प्रत्येक बोतलमा उत्कृष्ट स्पष्टता र शुद्धता सुनिश्चित गर्छ। |",
-    },
-    {
-        img: "/img/4.png",
-        name: "विशेषज्ञताको साथ सिर्जना गरिएको",
-        des : "प्रत्येक ब्याचलाई सावधानीपूर्वक उमालिन्छ ताकि माल्टको समृद्ध स्वादको सही सन्तुलन प्राप्त होस् |",
     },
  ]
 
@@ -83,3 +61,22 @@ import { CardIn, Contact, NavItem } from "@/src/types"
         des: "JAPAN",
     },
 ]
+
+export const GalleryData:GalleryIn[] = [
+    {
+        img: "/gallery/5.png"
+    },
+    {
+        img: "/gallery/2.png"
+    },
+    {
+        img: "/gallery/3.png"
+    },
+    {
+        img: "/gallery/4.png"
+    },
+    {
+        img: "/gallery/1.png"
+    },
+]
+ 

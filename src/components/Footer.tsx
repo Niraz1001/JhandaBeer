@@ -10,7 +10,7 @@ const Footer = () => {
       <div className='globalContainer pt-9 pb-2'>
         {/* Logo Section */}
         <div className=' flex items-center  gap-5 md:gap-5 lg:gap-40 ml-10 md:ml-0'>
-          <div className='w-14 md:w-20 lg:w-32'><Image src={"/img/logo.png"} height={118} width={132} alt='logo' layout='responsive' className='object-cover'/></div>
+          <div className='w-14 md:w-20 lg:w-32'><Image src={"/img/logo.png"} height={118} width={132} alt='logo' className='object-cover'/></div>
           <p className='text-base md:text-2xl lg:text-4xl'>Crafting premium beer since 1995</p>
         </div>
 

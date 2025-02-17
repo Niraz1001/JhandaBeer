@@ -1,13 +1,112 @@
 'use client'
+import HeroSection from '@/src/components/Herosection';
+import TestingNotes from '@/src/components/TestingNotes';
+import { TestingIn } from '@/src/types';
+import Image from 'next/image';
 import React from 'react'
-import { useTranslation } from 'react-i18next';
+import { FaPercentage, FaTemperatureLow, FaWineGlass } from 'react-icons/fa';
+import { GoQuestion } from 'react-icons/go';
 
 const Product = () => {
-  const { t } = useTranslation();
+
+  const Testing: TestingIn[] = [
+    {
+      icon: <GoQuestion size={20} />,
+      title: "Aroma",
+      desc: "Rich malty sweetness with subtle hop fragrance",
+    },
+    {
+      icon: <GoQuestion size={20}/>,
+      title: "Aroma",
+      desc: "Rich malty sweetness with subtle hop fragrance",
+    },
+    {
+      icon: <GoQuestion size={20}/>,
+      title: "Aroma",
+      desc: "Rich malty sweetness with subtle hop fragrance",
+    }
+  ]
 
   return (
     <div>
-      <div>{t("welcome") || "Welcome"}</div>
+
+      <HeroSection
+        Background={"/img/background3.jpg"}
+        title={"Crafted for the True Nepalese Spirit"}
+        desc={"Experience the perfect blend of tradition and excellence in every sip"} />
+
+      {/*Premium Section*/}
+      <div className='overflow-hidden pr-32 pt-16 flex justify-between items-center gap-20 text-white '>
+        <div className='relative w-full h-full basis-[50%]'>
+          <Image alt='BeerPng' src={"/img/beer3.png"} width={1000} height={1000} className='object-cover w-auto h-full' />
+        </div>
+        <div className='basis-[50%]'>
+          <h4 className='text-[36px] font-semibold mb-8'>Premium Craftsmanship</h4>
+          <div className='relative p-6 bg-[#FFFFFF0D] rounded-xl mb-8'>
+            <p className='text-xl font-bold'>Flavor Profile</p>
+
+            <div className='flex justify-between items-center my-4'>
+              <p>Bitterness</p>
+              <div className="w-[192px] bg-[#FFFFFF33] rounded-full h-2">
+                <div className="bg-white h-2 rounded-full w-[70%]"></div>
+              </div>
+            </div>
+
+            <div className='flex justify-between items-center mb-4'>
+              <p>Maltiness</p>
+              <div className="w-[192px] bg-[#FFFFFF33] rounded-full h-2">
+                <div className="bg-white h-2 rounded-full w-[75%]"></div>
+              </div>
+            </div>
+
+            <div className='flex justify-between items-center m5-4'>
+              <p>Smoothness</p>
+              <div className="w-[192px] bg-[#FFFFFF33] rounded-full h-2">
+                <div className="bg-white h-2 rounded-full w-[80%]"></div>
+              </div>
+            </div>
+          </div>
+
+          <div className='flex justify-start items-center gap-5'>
+            <div className='py-4 w-48 bg-[#FFFFFF0D] rounded-xl flex flex-col items-center'>
+              <FaPercentage className='h-6' />
+              <p>Alcohol Content</p>
+              <p className='text-xl font-bold'>4.8%</p>
+            </div>
+
+            <div className='py-4 w-48 bg-[#FFFFFF0D] rounded-xl flex flex-col items-center'>
+              <FaTemperatureLow className='h-6' />
+              <p>Serving Temp</p>
+              <p className='text-xl font-bold'>4°C</p>
+            </div>
+
+            <div className='py-4 w-48 bg-[#FFFFFF0D] rounded-xl flex flex-col items-center'>
+              <FaWineGlass className='h-6' />
+              <p>Best Serve</p>
+              <p className='text-xl font-bold'>Chilled</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      {/*Testing Notes Section*/}
+      <div className='overflow-hidden pl-32 pt-16 flex justify-between items-start gap-20 w-full text-white'>
+
+        <div className='basis-[50%]'>
+          <h4 className='text-[36px] font-semibold mb-4'>Tasting Notes</h4>
+          {
+            Testing.map((item,idx)=>(
+              <TestingNotes key={idx}  item={item} />
+            ))
+          }
+        </div>
+        <div className='relative w-full h-full basis-[50%] top-5'>
+          <Image alt='BeerPng' src={"/img/beer3.png"} width={1000} height={1000} className='object-cover w-auto h-full' />
+        </div>
+      </div>
+
     </div>
   );
 }

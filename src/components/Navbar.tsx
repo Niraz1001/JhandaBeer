@@ -8,6 +8,7 @@ import { CiGlobe } from 'react-icons/ci';
 import { usePathname } from 'next/navigation';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import i18n from 'i18next';
+import { IoCloseSharp } from 'react-icons/io5';
 
 const Navbar = () => {
   const [IsOpen, setIsOpen] = useState(false);
@@ -18,7 +19,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="relative bg-white shadow-sm">
+    <nav className="fixed left-0 top-0 z-20 w-full bg-white shadow-sm">
       <div className="globalContainer py-3 flex justify-between items-center">
         {/* Logo Section */}
         <Image src="/img/logo.png" width={65} height={67} alt="logo" />
@@ -50,6 +51,25 @@ const Navbar = () => {
             <option value="en">EN</option>
           </select>
         </div>
+
+        {/*Mobile view Nav section*/}
+
+        {
+          IsOpen &&
+          <div className={`globalContainer py-7 pl-20 bg-[#2E358C] absolute left-0 top-0 w-full h-screen z-10 text-white flex justify-between`}>
+            <div className='mt-10'>
+              {
+                NavItemData.map((item, idx) => (
+                  <div key={idx} className={`mb-5 ${Pathname === item.href && "text-[#EC2028]"}`}>
+                    <Link href={item.href} onClick={() => (setIsOpen(!IsOpen))}>{item.name}</Link>
+                  </div>
+                ))
+              }
+            </div>
+            <div onClick={() => (setIsOpen(!IsOpen))}><IoCloseSharp size={30} /></div>
+          </div>
+        }
+
       </div>
     </nav>
   );
