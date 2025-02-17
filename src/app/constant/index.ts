@@ -1,4 +1,4 @@
-import { Contact, GalleryIn, NavItem } from "@/src/types"
+import { CardIn, Contact, GalleryIn, NavItem } from "@/src/types"
 
 
  export const NavItemData: NavItem[]= [
@@ -80,3 +80,26 @@ export const GalleryData:GalleryIn[] = [
     },
 ]
  
+
+export const Brewing:CardIn[]= [
+    {
+        img: "/img/9.png",
+        name: "The Aroma",
+        des: "Handpicked ingredients that create our signature scent"
+    },
+    {
+        img: "/img/10.png",
+        name: "The Fire",
+        des: "Traditional brewing methods meeting modern precision"
+    },
+    {
+        img: "/img/11.png",
+        name: "The Chill",
+        des: "Perfecting temperature for optimal taste"
+    },
+    {
+        img: "/img/12.png",
+        name: "The Pour",
+        des: "The final touch of perfection"
+    },
+]

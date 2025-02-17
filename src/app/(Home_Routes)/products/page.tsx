@@ -82,7 +82,7 @@ const Product = () => {
 
             <div className='py-4 w-48 bg-[#FFFFFF0D] rounded-xl flex flex-col items-center'>
               <FaWineGlass className='h-6' />
-              <p>Best Serve</p>
+              <p>Best Served</p>
               <p className='text-xl font-bold'>Chilled</p>
             </div>
           </div>
