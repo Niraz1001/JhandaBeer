@@ -33,24 +33,32 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Hamburger for Mobile View */}
-        <div className="lg:hidden">
-          {!IsOpen && <div onClick={() => setIsOpen(!IsOpen)}><GiHamburgerMenu size={30} /></div>}
+
+        <div className='flex gap-8'>
+
+          {/* Language Selector */}
+          <div className="flex justify-center items-center gap-2">
+            <CiGlobe size={20} />
+            {i18n.language === "np" ? (
+              <Image src="/img/nepal-flag-icon.webp" width={17} height={20} alt="nepal-flag" />
+            ) : (
+              <Image src="/img/Flag_of_the_United_Kingdom.png" width={30} height={30} alt="uk-flag" />
+            )}
+            <select onChange={(e) => changelan(e.target.value)} className='bg-white'>
+              <option value="np">NP</option>
+              <option value="en">EN</option>
+            </select>
+          </div>
+
+          {/* Hamburger for Mobile View */}
+          <div className="lg:hidden">
+            {!IsOpen && <div onClick={() => setIsOpen(!IsOpen)}><GiHamburgerMenu size={30} /></div>}
+          </div>
+
         </div>
 
-        {/* Language Selector */}
-        <div className="hidden lg:flex justify-center items-center gap-2">
-          <CiGlobe size={20} />
-          {i18n.language === "np" ? (
-            <Image src="/img/nepal-flag-icon.webp" width={17} height={20} alt="nepal-flag" />
-          ) : (
-            <Image src="/img/Flag_of_the_United_Kingdom.png" width={30} height={30} alt="uk-flag" />
-          )}
-          <select onChange={(e) => changelan(e.target.value)}>
-            <option value="np">NP</option>
-            <option value="en">EN</option>
-          </select>
-        </div>
+
+
 
         {/*Mobile view Nav section*/}
 
@@ -61,7 +69,7 @@ const Navbar = () => {
               {
                 NavItemData.map((item, idx) => (
                   <div key={idx} className={`mb-5 ${Pathname === item.href && "text-[#EC2028]"}`}>
-                    <Link href={item.href} onClick={() => (setIsOpen(!IsOpen))}>{item.name}</Link>
+                    <Link href={item.href} onClick={() => (setIsOpen(!IsOpen))} className='text-lg'>{item.name}</Link>
                   </div>
                 ))
               }

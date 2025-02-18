@@ -1,9 +1,63 @@
+'use client'
 import HeroSection from '@/src/components/Herosection'
-import React from 'react'
+import { ChangeEvent, useState } from 'react';
 import { FaFacebook, FaInstagram, FaMapMarkerAlt, } from 'react-icons/fa'
 import { IoMdCall, IoMdMail } from 'react-icons/io'
 
 const Contact = () => {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [responseMessage, setResponseMessage] = useState('');
+  const [error, setError] = useState('');
+  const [Loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setResponseMessage('');
+    setError('');
+    setLoading(true);
+
+    try {
+      const response = await fetch('/api/SendEmail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const contentType = response.headers.get('Content-Type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Invalid JSON response. Check API endpoint.');
+      }
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Failed to send email.');
+      }
+
+      setResponseMessage('Email Sent!');
+      setFormData({ name: '', email: '', message: '' }); // Reset form
+    } catch (error) {
+      console.error('Error:', error);
+      setError(error instanceof Error ? error.message : 'An unknown error occurred.');
+    } finally {
+      setLoading(false)
+    }
+  };
+
+  console.log(error)
+
 
   return (
     <div>
@@ -12,12 +66,12 @@ const Contact = () => {
         title={"Every great journey starts with a single sip. Ready to reach us?"}
       />
 
-      <div className="globalContainer py-28 flex justify-between gap-10 text-white">
+      <div className="globalContainer py-10 md:py-28 md:flex md:flex-row justify-between gap-10 text-white">
 
         {/* Left Section - Contact Info */}
-        <div className=' w-[45%]'>
-          <h2 className="text-[36px] font-bold ">Get in Touch</h2>
-          <p className="mt-2 text-lg ">
+        <div className=' md:w-[45%]'>
+          <h2 className="text-[30px] md:text-[36px] font-bold ">Get in Touch</h2>
+          <p className="mt-2 text-base md:text-lg ">
             We love to hear from you. Please fill out the form or contact us using the information below.
           </p>
 
@@ -63,16 +117,19 @@ const Contact = () => {
 
 
         {/* Right Section - Form */}
-        <div className="bg-white p-8 rounded-2xl shadow-lg w-full md:w-1/2">
+        <div className="bg-white mt-5 md:mt-0 p-8 rounded-2xl shadow-lg w-full md:w-1/2">
           <h2 className="text-2xl font-bold text-[#111827]">Send a Message</h2>
 
-          <form className="mt-6 space-y-4">
+          <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
             <div>
               <label className="text-gray-700">Name</label>
               <input
                 type="text"
-                className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                id='name'
+                className="w-full mt-1 p-3 border text-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                 placeholder="Enter your name"
+                onChange={handleChange}
+                value={formData.name}
               />
             </div>
 
@@ -80,27 +137,45 @@ const Contact = () => {
               <label className="text-gray-700">Email Address</label>
               <input
                 type="email"
-                className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                id='email'
+                className="w-full mt-1 p-3 border text-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                 placeholder="Enter your email"
+                onChange={handleChange}
+                value={formData.email}
               />
             </div>
 
             <div>
               <label className="text-gray-700">Message</label>
               <textarea
-                className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                id='message'
+                className="w-full mt-1 p-3 border text-gray-700 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                 placeholder="Enter your message"
                 rows={4}
+                onChange={handleChange}
+                value={formData.message}
+
               ></textarea>
             </div>
 
-            <button className="w-full bg-blue-700 text-white py-3 rounded-lg text-lg hover:bg-blue-800 transition">
-              Submit Message
+            <button
+              type="submit"
+              className="w-full bg-blue-700 text-white py-3 rounded-lg text-lg hover:bg-blue-800 transition"
+            >
+              {
+                responseMessage ? (
+                  <p>{responseMessage}</p>
+                ) : Loading ? (
+                  <p>Loading...</p>
+                ) : (
+                  <p>Send Message</p>
+                )
+              }
             </button>
           </form>
 
           {/* Privacy Notice */}
-          <p className="text-gray-500 text-sm mt-4">
+          <p className="text-gray-500 text-xs md:text-sm mt-4">
             By submitting this form, you agree to our privacy policy and terms of service. We will handle your information in accordance with our data protection guidelines.
           </p>
         </div>
