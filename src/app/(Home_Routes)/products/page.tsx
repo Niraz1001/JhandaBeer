@@ -12,7 +12,7 @@ const Product = () => {
 
   const Testing: TestingIn[] = [
     {
-      icon: <PiWaves size={20} />,
+      icon: <PiWaves size={20} className='rotate-[-80deg]'/>,
       title: "Aroma",
       desc: "Rich malty sweetness with subtle hop fragrance",
     },
