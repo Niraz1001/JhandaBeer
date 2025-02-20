@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { CardIn } from '@/src/types'
 import Gallery from '@/src/components/gallery'
 import { GalleryData } from '../constant'
+// import AgeConfirmationBox from '@/src/components/AgeConfirmationBox'
 
 
 const Home = () => {
@@ -15,7 +16,7 @@ const Home = () => {
   const cards = t('cards', { returnObjects: true }); // Fetch cards data from translations
   const cardsArray = Array.isArray(cards) ? cards : Object.values(cards);
 
-  
+
 
   return (
     <div className='mt-20'>
@@ -109,6 +110,11 @@ const Home = () => {
           }
         </div>
       </div>
+
+
+   
+
+
 
     </div >
   )
